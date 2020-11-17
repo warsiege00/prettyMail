@@ -1,0 +1,271 @@
+/*https://fonts.google.com/featured/Superfamilies?sidebar.open&selection.family=Alegreya|Alegreya+Sans|Merriweather|Merriweather+Sans|Nunito|Nunito+Sans|Quattrocento|Quattrocento+Sans|Roboto|Roboto+Mono|Roboto+Slab*/
+
+/*Pallet Colors*/
+$dark-purple: #2c2e5f;
+$light-salmon: #f99d95;
+$light-purple:   #57578F;
+$light-grey: #D3D0D6;
+$dark-salmon: #E5957C;
+$grey: #B2B7D3;
+$dark-grey: #A298A2;
+$blue-purple: #2c2e5f;
+$light-blue: #80aaff;
+$green: #6ac71c;
+$highlight-blue: #80f9ff;
+$pink: #cf79fb;
+
+/* Variants position*/
+
+$mailBoard-pl: 15px; /*Mailboard inside elements Padding Left*/
+$cardHeader-padding: 8px;
+$title-fs: 0.8em;
+$subtitle: 0.6em;
+$letterSpacing: 0;
+/*Grid*/
+
+.row {
+    display: flex;
+}
+
+.col-1 {
+    flex: 1;
+}
+.col-2 {
+    flex: 2;
+}
+.col-3 {
+    flex: 3;
+}
+.col-4 {
+    flex: 4;
+}
+.col-5 {
+    flex: 5;
+}
+.col-6 {
+    flex: 6;
+}
+.col-7 {
+    flex: 7;
+}
+.col-8 {
+    flex: 8;
+}
+.col-9 {
+    flex: 9;
+}
+.col-10 {
+    flex: 10;
+}
+.col-12 {
+    flex: 12;
+}
+
+/*Container do APP */
+.mailContainer {
+    background-image: linear-gradient($dark-purple, $light-purple);
+    letter-spacing: 0.1em;
+}
+/*Tools List*/
+@media only screen and (max-width: 380px) {
+    .toolsList{
+        display: none;
+    }
+  }
+.toolsList{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;    
+
+    li {
+        text-align: center;
+        padding-top: 27px;
+        padding-bottom: 27px;
+        padding-left: 14px;        
+        padding-right: 14px;
+
+        i {
+            color: $light-grey;
+            opacity: 0.6;
+        }
+    }   
+}
+
+/*Tool List Items*/
+.create {
+    background-color: $light-blue;    
+    i {
+        opacity: 1 !important;
+    }
+}
+.selected {
+    background-color: $dark-purple;
+}
+
+/*MailBoard and Search*/
+.mailBoard {
+    margin: 22px;
+    .searchContainer {
+        width: 100%;    
+        border-radius: 12px;
+        border: solid 1px $dark-purple;
+        background-color: $dark-purple;
+        position: relative;        
+    }
+    #searchInput {        
+        background-color: transparent;
+        padding-top: 9px;
+        padding-bottom: 9px;   
+        padding-left: $mailBoard-pl;     
+        @extend .searchContainer;   
+        color: $light-grey;  
+        font-size: $title-fs;    
+        font-weight: bold;  
+        font-family: 'Roboto Slab', serif; 
+        letter-spacing: 0.15em;
+    }
+    #searchInput:focus {
+        outline: none;
+    }
+    .searchIcon {
+        position: absolute;
+        right: 16px;
+        padding: 0.7rem;
+        color: $light-grey;
+        opacity: 0.6;        
+    }
+    
+}
+
+/*Mail List Cards */  
+
+.mailList {
+    margin-top: 1.8em;
+    .card {
+        margin-top: 14px;
+        border-radius: 3px;
+        padding-top: $cardHeader-padding;
+        background-color: $light-purple;        
+        font-family: 'Roboto Slab', serif;   
+        
+        
+        .cardHeader {
+            padding-left: $mailBoard-pl;            
+            padding-bottom: $cardHeader-padding;
+            color: $light-grey;
+            align-items: center;
+            opacity: 0.9;
+            border-bottom: 0.05em solid $light-purple;
+            i{
+                font-size: 1.4em;                
+                padding-right: 0.8em;
+            }
+            .fa-envelope {
+                color: $light-blue;
+            }   
+            .fa-check-circle {
+                padding-left: 5px;
+            } 
+            .unreadIcon{
+                position: relative;
+                .newMessageIcon {
+                    position: absolute;    
+                    left: 15px;
+                    bottom: 15px;
+                    font-size: 0.7em;
+                    color: red;
+                }
+                .noMessageIcon {
+                    display: none;                    
+                }
+            }
+            
+            .checked {
+                color:$green;
+            }       
+            .title{
+                font-size: $title-fs;
+                font-weight: bold;                
+            }
+            .mailAdress {
+                font-size: $subtitle;
+                vertical-align: top;
+            }
+        }
+        .cardBody{
+            .mail{
+                padding-top: 1em;
+                padding-bottom: 1em;
+                padding-left: $mailBoard-pl;
+                border-top: solid 0.01em $dark-purple;                
+                
+                &.unread{
+                    background-color: $light-purple;
+                    .senderMail, .titleMail, .dayWeek {
+                        color: $highlight-blue;
+                        font-weight: bold;  
+                        opacity: 1;
+                    }
+                } 
+            }   
+                    
+            .avatar {
+                vertical-align: middle;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                opacity: 0.9;
+            }
+            
+            border-radius: 3px;
+            .senderMail, .titleMail {
+                font-size: $title-fs;
+                font-weight: bold;  
+                color: $light-grey;  
+            }
+            .subjectMail, .dayWeek {
+                font-size: $subtitle;                  
+                color: $light-grey;  
+            }            
+        }
+
+        &.snoozed {
+            .cardHeader {
+                padding-bottom: 15px;
+                padding-top: 11px;
+                
+            }
+            i.fa-clock {                
+                color: $light-salmon;
+            }
+        }
+        &.newsletter {
+            .cardHeader {
+                padding-bottom: 15px;
+                padding-top: 11px;
+                
+            }
+            i.fa-newspaper {
+                color: $pink;
+            }
+            
+        }
+
+    }
+
+    
+}
+
+
+
+body{
+    background-color:  #000;
+}
+
+
+/*Visualizar de conteudo*/
+
+.contentViewer {
+    background-color: #fff;
+}
